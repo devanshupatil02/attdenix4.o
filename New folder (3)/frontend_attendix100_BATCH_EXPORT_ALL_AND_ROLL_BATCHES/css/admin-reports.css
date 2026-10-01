@@ -1,0 +1,44 @@
+/* ============================================
+   ATTENDIX – Admin Reports Page (admin-reports.css)
+   ============================================ */
+
+.report-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: #16a34a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.download-btn:hover {
+  background: #15803d;
+  box-shadow: 0 3px 10px rgba(22, 163, 74, 0.3);
+}
+
+.attendance-bar-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 130px;
+}
+
+.att-pct-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  min-width: 40px;
+}

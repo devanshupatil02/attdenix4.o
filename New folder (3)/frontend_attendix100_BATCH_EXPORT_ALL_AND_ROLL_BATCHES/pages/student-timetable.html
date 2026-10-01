@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+        content="#1769E0">
+
+    <title>My Timetable | ATTENDIX</title>
+
+    <!-- Student Dashboard CSS -->
+    <link rel="stylesheet"
+        href="../css/student-dashboard.css">
+
+    <style>
+
+        /* =========================================
+           ATTENDIX - STUDENT TIMETABLE
+        ========================================= */
+
+        .timetable-summary {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .summary-card {
+
+            background: #ffffff;
+
+            border: 1px solid #E5E7EB;
+
+            border-radius: 11px;
+
+            padding: 20px;
+
+            box-shadow:
+                0 4px 15px
+                rgba(20, 40, 80, 0.06);
+        }
+
+
+        .summary-card span {
+
+            display: block;
+
+            color: #6B7280;
+
+            font-size: 12px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .summary-card strong {
+
+            display: block;
+
+            font-size: 25px;
+
+            color: #172033;
+        }
+
+
+        .summary-card.primary strong {
+
+            color: #1769E0;
+        }
+
+
+        /* =========================================
+           TIMETABLE CARD
+        ========================================= */
+
+        .timetable-card {
+
+            background: #ffffff;
+
+            border: 1px solid #E5E7EB;
+
+            border-radius: 11px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 4px 15px
+                rgba(20, 40, 80, 0.06);
+        }
+
+
+        .timetable-header {
+
+            padding: 20px 22px;
+
+            border-bottom:
+                1px solid #E5E7EB;
+        }
+
+
+        .timetable-header h2 {
+
+            margin: 0 0 5px;
+
+            font-size: 18px;
+
+            color: #172033;
+        }
+
+
+        .timetable-header p {
+
+            margin: 0;
+
+            color: #6B7280;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           WEEK NAVIGATION
+        ========================================= */
+
+        .week-navigation {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            gap: 12px;
+
+            padding: 16px 20px;
+
+            border-bottom:
+                1px solid #E5E7EB;
+
+            background: #FAFBFD;
+        }
+
+
+        .week-navigation button {
+
+            border: 1px solid #D1D5DB;
+
+            background: #ffffff;
+
+            color: #1769E0;
+
+            border-radius: 7px;
+
+            padding: 8px 14px;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .week-navigation button:hover {
+
+            background: #EFF6FF;
+
+            border-color: #1769E0;
+        }
+
+
+        #weekTitle {
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            color: #172033;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           DAYS
+        ========================================= */
+
+        .timetable-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 1px;
+
+            background: #E5E7EB;
+        }
+
+
+        .day-column {
+
+            background: #ffffff;
+
+            min-height: 300px;
+        }
+
+
+        .day-header {
+
+            padding: 14px 12px;
+
+            background: #F8FAFC;
+
+            border-bottom:
+                1px solid #E5E7EB;
+
+            text-align: center;
+        }
+
+
+        .day-header strong {
+
+            display: block;
+
+            font-size: 13px;
+
+            color: #172033;
+        }
+
+
+        .day-header span {
+
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 11px;
+
+            color: #6B7280;
+        }
+
+
+        .day-classes {
+
+            padding: 12px;
+        }
+
+
+        /* =========================================
+           CLASS ITEM
+        ========================================= */
+
+        .class-item {
+
+            border: 1px solid #DCE6F5;
+
+            border-left:
+                4px solid #1769E0;
+
+            background: #F8FBFF;
+
+            border-radius: 8px;
+
+            padding: 13px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .class-item:last-child {
+
+            margin-bottom: 0;
+        }
+
+
+        .class-time {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            color: #1769E0;
+
+            margin-bottom: 7px;
+        }
+
+
+        .class-subject {
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            color: #172033;
+
+            line-height: 1.35;
+
+            margin-bottom: 8px;
+        }
+
+
+        .class-details {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+
+        .class-detail {
+
+            font-size: 11px;
+
+            color: #6B7280;
+        }
+
+
+        .class-type {
+
+            display: inline-block;
+
+            margin-top: 8px;
+
+            padding: 4px 8px;
+
+            border-radius: 12px;
+
+            background: #EFF6FF;
+
+            color: #1769E0;
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           EMPTY STATE
+        ========================================= */
+
+        .empty-day {
+
+            padding: 30px 10px;
+
+            text-align: center;
+
+            color: #9CA3AF;
+
+            font-size: 12px;
+        }
+
+
+        .loading-state {
+
+            grid-column:
+                1 / -1;
+
+            padding: 50px;
+
+            text-align: center;
+
+            background: #ffffff;
+
+            color: #6B7280;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           TODAY
+        ========================================= */
+
+        .day-column.today {
+
+            background: #FBFDFF;
+        }
+
+
+        .day-column.today
+        .day-header {
+
+            background: #EFF6FF;
+
+            border-bottom:
+                2px solid #1769E0;
+        }
+
+
+        .today-label {
+
+            display: inline-block;
+
+            margin-top: 5px;
+
+            padding: 3px 7px;
+
+            border-radius: 10px;
+
+            background: #1769E0;
+
+            color: #ffffff;
+
+            font-size: 9px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1100px) {
+
+            .timetable-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .timetable-summary {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .timetable-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .timetable-summary {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .week-navigation {
+
+                padding: 12px;
+            }
+
+
+            .week-navigation button {
+
+                padding: 7px 10px;
+
+                font-size: 11px;
+            }
+
+
+            #weekTitle {
+
+                font-size: 12px;
+            }
+
+
+            .timetable-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .day-column {
+
+                min-height: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body data-role="student">
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                A
+            </div>
+
+
+            <div class="brand-text">
+
+                <h2>
+                    ATTENDIX
+                </h2>
+
+                <span>
+                    Smart Attendance
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="student-dashboard.html"
+                class="nav-item">
+
+                <span class="nav-icon">
+                    ⌂
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- ATTENDANCE -->
+
+            <a
+                href="student-attendance.html"
+                class="nav-item">
+
+                <span class="nav-icon">
+                    ▣
+                </span>
+
+                <span>
+                    My Attendance
+                </span>
+
+            </a>
+
+
+            <!-- TIMETABLE -->
+
+            <a
+                href="student-timetable.html"
+                class="nav-item active">
+
+                <span class="nav-icon">
+                    ▦
+                </span>
+
+                <span>
+                    My Timetable
+                </span>
+
+            </a>
+
+
+            <!-- PROFILE -->
+
+            <a
+                href="student-profile.html"
+                class="nav-item">
+
+                <span class="nav-icon">
+                    ●
+                </span>
+
+                <span>
+                    My Profile
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                id="logoutBtn"
+                class="logout-btn">
+
+                <span>
+                    ↪
+                </span>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+                <h1>
+                    My Timetable
+                </h1>
+
+                <p id="pageSubtitle">
+                    View your weekly class schedule
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="user-info">
+
+
+                    <div
+                        id="userAvatar"
+                        class="user-avatar">
+
+                        S
+
+                    </div>
+
+
+                    <div class="user-details">
+
+                        <strong id="userName">
+                            Student
+                        </strong>
+
+                        <span id="userRole">
+                            Student
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <section class="dashboard-content">
+
+
+            <!-- =================================
+                 WELCOME CARD
+            ================================== -->
+
+            <div class="welcome-card">
+
+
+                <div class="welcome-content">
+
+                    <span class="welcome-label">
+                        Weekly Schedule
+                    </span>
+
+
+                    <h2 id="welcomeName">
+                        Student
+                    </h2>
+
+
+                    <p id="studentClassInfo">
+                        Loading your timetable...
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="welcome-date"
+                    id="currentDate">
+
+                    Loading...
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 SUMMARY CARDS
+            ================================== -->
+
+            <div class="timetable-summary">
+
+
+                <!-- TOTAL CLASSES -->
+
+                <div class="summary-card primary">
+
+                    <span>
+                        Weekly Classes
+                    </span>
+
+                    <strong
+                        id="totalClasses">
+
+                        0
+
+                    </strong>
+
+                </div>
+
+
+                <!-- TODAY -->
+
+                <div class="summary-card">
+
+                    <span>
+                        Today's Classes
+                    </span>
+
+                    <strong
+                        id="todayClasses">
+
+                        0
+
+                    </strong>
+
+                </div>
+
+
+                <!-- SUBJECTS -->
+
+                <div class="summary-card">
+
+                    <span>
+                        Subjects
+                    </span>
+
+                    <strong
+                        id="totalSubjects">
+
+                        0
+
+                    </strong>
+
+                </div>
+
+
+                <!-- ROOM -->
+
+                <div class="summary-card">
+
+                    <span>
+                        Today's Room
+                    </span>
+
+                    <strong
+                        id="todayRoom">
+
+                        -
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 TIMETABLE
+            ================================== -->
+
+            <div class="timetable-card">
+
+
+                <!-- HEADER -->
+
+                <div class="timetable-header">
+
+                    <h2>
+                        Weekly Timetable
+                    </h2>
+
+                    <p>
+                        Your scheduled classes
+                    </p>
+
+                </div>
+
+
+                <!-- =================================
+                     WEEK NAVIGATION
+                ================================== -->
+
+                <div class="week-navigation">
+
+
+                    <button
+                        type="button"
+                        id="previousWeekBtn">
+
+                        ← Previous
+
+                    </button>
+
+
+                    <span
+                        id="weekTitle">
+
+                        Current Week
+
+                    </span>
+
+
+                    <button
+                        type="button"
+                        id="nextWeekBtn">
+
+                        Next →
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================
+                     TIMETABLE GRID
+                ================================== -->
+
+                <div
+                    id="timetableGrid"
+                    class="timetable-grid">
+
+
+                    <div
+                        class="loading-state">
+
+                        Loading timetable...
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script
+        type="module"
+        src="../js/student-timetable.js">
+    </script>
+
+
+</body>
+
+</html>

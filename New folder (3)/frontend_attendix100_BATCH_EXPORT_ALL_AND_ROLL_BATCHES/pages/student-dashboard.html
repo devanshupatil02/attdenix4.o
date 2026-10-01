@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#1769E0">
+
+    <title>Student Dashboard | ATTENDIX</title>
+
+    <link rel="stylesheet"
+          href="../css/student-dashboard.css">
+
+</head>
+
+
+<body data-role="student">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    =================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                A
+            </div>
+
+            <div class="brand-text">
+
+                <h2>
+                    ATTENDIX
+                </h2>
+
+                <span>
+                    Smart Attendance
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="student-dashboard.html"
+                class="nav-item active">
+
+                <span class="nav-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- ATTENDANCE -->
+
+            <a
+                href="student-attendance.html"
+                class="nav-item">
+
+                <span class="nav-icon">
+                    📊
+                </span>
+
+                <span>
+                    My Attendance
+                </span>
+
+            </a>
+
+
+            <!-- TIMETABLE -->
+
+            <a
+                href="student-timetable.html"
+                class="nav-item">
+
+                <span class="nav-icon">
+                    📅
+                </span>
+
+                <span>
+                    My Timetable
+                </span>
+
+            </a>
+
+
+            <!-- PROFILE -->
+
+            <a
+                href="student-profile.html"
+                class="nav-item">
+
+                <span class="nav-icon">
+                    👤
+                </span>
+
+                <span>
+                    My Profile
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn">
+
+                <span>
+                    ↪
+                </span>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    =================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOPBAR
+        =================================================== -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+                <h1>
+                    Student Dashboard
+                </h1>
+
+                <p>
+                    Welcome to your ATTENDIX dashboard
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="user-info">
+
+
+                    <div
+                        id="userAvatar"
+                        class="user-avatar">
+
+                        S
+
+                    </div>
+
+
+                    <div class="user-details">
+
+                        <strong id="userName">
+                            Student
+                        </strong>
+
+                        <span id="userRole">
+                            Student
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             PAGE CONTENT
+        =================================================== -->
+
+        <section class="dashboard-content">
+
+
+            <!-- ==================================================
+                 WELCOME
+            =================================================== -->
+
+            <div class="welcome-card">
+
+
+                <div class="welcome-content">
+
+                    <span class="welcome-label">
+                        Welcome back 👋
+                    </span>
+
+
+                    <h2 id="welcomeName">
+                        Student
+                    </h2>
+
+
+                    <p id="studentInfo">
+                        Here's your attendance overview.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="currentDate"
+                    class="welcome-date">
+
+                    Loading...
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 STAT CARDS
+            =================================================== -->
+
+            <div class="stats-grid">
+
+
+                <!-- OVERALL -->
+
+                <div class="stat-card primary">
+
+                    <span>
+                        Overall Attendance
+                    </span>
+
+                    <strong id="overallAttendance">
+                        0%
+                    </strong>
+
+                    <small id="attendanceSubtext">
+                        Based on recorded classes
+                    </small>
+
+                </div>
+
+
+                <!-- PRESENT -->
+
+                <div class="stat-card success">
+
+                    <span>
+                        Present
+                    </span>
+
+                    <strong id="presentCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Classes attended
+                    </small>
+
+                </div>
+
+
+                <!-- ABSENT -->
+
+                <div class="stat-card danger">
+
+                    <span>
+                        Absent
+                    </span>
+
+                    <strong id="absentCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Classes missed
+                    </small>
+
+                </div>
+
+
+                <!-- TOTAL -->
+
+                <div class="stat-card">
+
+                    <span>
+                        Total Classes
+                    </span>
+
+                    <strong id="totalClasses">
+                        0
+                    </strong>
+
+                    <small>
+                        Scheduled classes
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TODAY'S CLASSES
+            =================================================== -->
+
+            <div class="section-card">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Today's Classes
+                        </h2>
+
+                        <p>
+                            Your scheduled classes for today
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="student-timetable.html"
+                        class="view-link">
+
+                        View Timetable →
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="table-container">
+
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Type
+                                </th>
+
+                                <th>
+                                    Room
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="todayClassesBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="empty-state">
+
+                                    Loading classes...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 SUBJECT ATTENDANCE
+            =================================================== -->
+
+            <div class="section-card">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Subject Attendance
+                        </h2>
+
+                        <p>
+                            Your attendance by subject
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="student-attendance.html"
+                        class="view-link">
+
+                        View Attendance →
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="table-container">
+
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Present
+                                </th>
+
+                                <th>
+                                    Absent
+                                </th>
+
+                                <th>
+                                    Total
+                                </th>
+
+                                <th>
+                                    Attendance
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="subjectAttendanceBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="empty-state">
+
+                                    Loading attendance data...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    =================================================== -->
+
+    <script
+        type="module"
+        src="../js/student-dashboard.js">
+    </script>
+
+
+</body>
+
+</html>

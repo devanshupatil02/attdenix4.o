@@ -1,0 +1,415 @@
+/* =========================================
+   ATTENDIX LOGIN PAGE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #1769e0,
+        #0d47a1
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+/* =========================================
+   LOGIN CONTAINER
+========================================= */
+
+.login-container {
+    width: 100%;
+    max-width: 430px;
+}
+
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 32px;
+}
+
+.brand-icon {
+    width: 52px;
+    height: 52px;
+
+    background: #1769e0;
+
+    color: white;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.brand h1 {
+    font-size: 27px;
+
+    color: #111827;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 3px;
+}
+
+.brand p {
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   LOGIN HEADER
+========================================= */
+
+.login-header {
+    margin-bottom: 25px;
+}
+
+.login-header h2 {
+    font-size: 25px;
+
+    color: #111827;
+
+    margin-bottom: 7px;
+}
+
+.login-header p {
+    font-size: 14px;
+
+    color: #6b7280;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 16px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #1769e0;
+
+    box-shadow:
+        0 0 0 3px rgba(23, 105, 224, 0.12);
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.form-group select {
+    cursor: pointer;
+
+    appearance: auto;
+}
+
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 52px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    background: #f3f4f6;
+
+    border-radius: 7px;
+}
+
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.error-message {
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #dc2626;
+
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-btn {
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #1769e0;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-btn:hover {
+    background: #1258bd;
+
+    box-shadow:
+        0 6px 15px rgba(23, 105, 224, 0.25);
+}
+
+.login-btn:active {
+    transform: scale(0.98);
+}
+
+.login-btn:disabled {
+    background: #93b8ee;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.login-footer {
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.login-footer p {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #4b5563;
+
+    margin-bottom: 5px;
+}
+
+.login-footer span {
+    font-size: 12px;
+
+    color: #9ca3af;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .login-card {
+        padding: 25px 20px;
+
+        border-radius: 18px;
+    }
+
+    .brand {
+        margin-bottom: 25px;
+    }
+
+    .brand-icon {
+        width: 46px;
+        height: 46px;
+
+        font-size: 24px;
+    }
+
+    .brand h1 {
+        font-size: 24px;
+    }
+
+    .login-header h2 {
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL SCREEN
+========================================= */
+
+@media (max-width: 350px) {
+
+    .login-card {
+        padding: 22px 16px;
+    }
+
+    .brand {
+        gap: 10px;
+    }
+
+    .brand-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 22px;
+    }
+
+    .brand h1 {
+        font-size: 21px;
+    }
+
+}

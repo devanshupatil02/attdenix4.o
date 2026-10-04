@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+        content="#1769E0">
+
+    <title>My Attendance | ATTENDIX</title>
+
+    <link rel="stylesheet"
+        href="../css/student-dashboard.css">
+
+    <style>
+        /* =========================================
+           ATTENDIX - STUDENT ATTENDANCE PAGE
+        ========================================= */
+
+        .attendance-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .summary-card {
+            background: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 11px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(20, 40, 80, 0.06);
+        }
+
+        .summary-card span {
+            display: block;
+            color: #6B7280;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .summary-card strong {
+            display: block;
+            font-size: 25px;
+            color: #172033;
+        }
+
+        .summary-card.rate strong {
+            color: #1769E0;
+        }
+
+        .filter-card {
+            background: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 11px;
+            padding: 18px 20px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px rgba(20, 40, 80, 0.06);
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-row label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .filter-row select {
+            min-width: 210px;
+            padding: 10px 12px;
+            border: 1px solid #D1D5DB;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #172033;
+            outline: none;
+        }
+
+        .filter-row select:focus {
+            border-color: #1769E0;
+        }
+
+        .subject-name {
+            font-weight: 600;
+            color: #172033;
+        }
+
+        .percentage {
+            font-weight: 700;
+        }
+
+        .percentage.good {
+            color: #16A34A;
+        }
+
+        .percentage.low {
+            color: #DC2626;
+        }
+
+        .attendance-progress {
+            width: 120px;
+            height: 7px;
+            background: #E5E7EB;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+
+        .attendance-progress-bar {
+            height: 100%;
+            background: #1769E0;
+            border-radius: 10px;
+        }
+
+        .history-card {
+            background: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 11px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px rgba(20, 40, 80, 0.06);
+            overflow: hidden;
+        }
+
+        .history-header {
+            padding: 20px 22px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .history-header h2 {
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .history-header p {
+            color: #6B7280;
+            font-size: 12px;
+        }
+
+        .history-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        .history-table th {
+            text-align: left;
+            padding: 13px 20px;
+            background: #FAFBFD;
+            color: #6B7280;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .history-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #F0F1F3;
+            font-size: 13px;
+        }
+
+        .present-badge {
+            display: inline-flex;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: #ECFDF3;
+            color: #16A34A;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .empty-attendance {
+            text-align: center;
+            color: #6B7280;
+            padding: 35px !important;
+        }
+
+        @media (max-width: 900px) {
+
+            .attendance-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .attendance-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-row {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .filter-row select {
+                width: 100%;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body data-role="student">
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                A
+            </div>
+
+            <div class="brand-text">
+
+                <h2>ATTENDIX</h2>
+
+                <span>Smart Attendance</span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="student-dashboard.html"
+                class="nav-item">
+
+                <span class="nav-icon">⌂</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="student-attendance.html"
+                class="nav-item active">
+
+                <span class="nav-icon">▣</span>
+
+                <span>My Attendance</span>
+
+            </a>
+
+
+            <a href="student-timetable.html"
+                class="nav-item">
+
+                <span class="nav-icon">▦</span>
+
+                <span>My Timetable</span>
+
+            </a>
+
+
+            <a href="student-profile.html"
+                class="nav-item">
+
+                <span class="nav-icon">●</span>
+
+                <span>My Profile</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button id="logoutBtn"
+                class="logout-btn">
+
+                <span>↪</span>
+
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <h1>My Attendance</h1>
+
+                <p id="pageSubtitle">
+                    View your attendance record
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="user-info">
+
+                    <div id="userAvatar"
+                        class="user-avatar">
+                        S
+                    </div>
+
+                    <div class="user-details">
+
+                        <strong id="userName">
+                            Student
+                        </strong>
+
+                        <span id="userRole">
+                            Student
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+
+        <section class="dashboard-content">
+
+
+            <!-- =====================================
+                 WELCOME
+            ====================================== -->
+
+            <div class="welcome-card">
+
+                <div class="welcome-content">
+
+                    <span class="welcome-label">
+                        Attendance Overview
+                    </span>
+
+                    <h2 id="welcomeName">
+                        Student
+                    </h2>
+
+                    <p>
+                        Check your attendance subject by subject.
+                    </p>
+
+                </div>
+
+                <div class="welcome-date"
+                    id="currentDate">
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 SUMMARY
+            ====================================== -->
+
+            <div class="attendance-summary">
+
+
+                <div class="summary-card rate">
+
+                    <span>
+                        Overall Attendance
+                    </span>
+
+                    <strong id="overallAttendance">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span>
+                        Present
+                    </span>
+
+                    <strong id="totalPresent">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span>
+                        Absent
+                    </span>
+
+                    <strong id="totalAbsent">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span>
+                        Total Classes
+                    </span>
+
+                    <strong id="totalClasses">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 SUBJECT FILTER
+            ====================================== -->
+
+            <div class="filter-card">
+
+                <div class="filter-row">
+
+                    <label for="subjectFilter">
+                        Subject
+                    </label>
+
+                    <select id="subjectFilter">
+
+                        <option value="all">
+                            All Subjects
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 SUBJECT-WISE ATTENDANCE
+            ====================================== -->
+
+            <div class="history-card">
+
+                <div class="history-header">
+
+                    <h2>
+                        Subject-wise Attendance
+                    </h2>
+
+                    <p>
+                        Attendance percentage for each subject
+                    </p>
+
+                </div>
+
+
+                <div class="history-table-wrapper">
+
+                    <table class="history-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Present
+                                </th>
+
+                                <th>
+                                    Absent
+                                </th>
+
+                                <th>
+                                    Total
+                                </th>
+
+                                <th>
+                                    Attendance
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="subjectAttendanceBody">
+
+                            <tr>
+
+                                <td colspan="5"
+                                    class="empty-attendance">
+
+                                    Loading attendance...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 ATTENDANCE HISTORY
+            ====================================== -->
+
+            <div class="history-card">
+
+                <div class="history-header">
+
+                    <h2>
+                        Attendance History
+                    </h2>
+
+                    <p>
+                        Your recent RFID attendance records
+                    </p>
+
+                </div>
+
+
+                <div class="history-table-wrapper">
+
+                    <table class="history-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="attendanceHistoryBody">
+
+                            <tr>
+
+                                <td colspan="4"
+                                    class="empty-attendance">
+
+                                    Loading attendance history...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script type="module"
+        src="../js/student-attendance.js">
+    </script>
+
+</body>
+
+</html>

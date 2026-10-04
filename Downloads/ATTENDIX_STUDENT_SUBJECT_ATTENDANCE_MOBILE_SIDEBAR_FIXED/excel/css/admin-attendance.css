@@ -1,0 +1,42 @@
+/* ============================================
+   ATTENDIX – Admin Attendance Page (admin-attendance.css)
+   ============================================ */
+
+.scan-time {
+  font-size: 13px;
+  color: #374151;
+  font-variant-numeric: tabular-nums;
+}
+
+.scan-time.absent {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.attendance-summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 22px;
+  border-bottom: 1px solid #f3f4f6;
+  background: #fafafa;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.summary-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.summary-dot.green  { background: #16a34a; }
+.summary-dot.red    { background: #dc2626; }
+.summary-dot.blue   { background: #1769E0; }

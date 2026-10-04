@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn(){ return request.auth != null; }
+    function profile(){ return signedIn() ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data : {}; }
+    function role(r){ return signedIn() && profile().role == r && profile().active == true; }
+    function admin(){ return role('admin'); }
+    function teacher(){ return role('teacher'); }
+    function hardware(){ return role('hardware'); }
+    function student(){ return role('student'); }
+
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || admin());
+      allow create, update, delete: if admin();
+    }
+    match /students/{sid} {
+      allow read: if admin() || teacher() || hardware() || (student() && profile().studentId == sid);
+      allow create, delete: if admin();
+      allow update: if admin() || hardware();
+    }
+    match /subjects/{sid} {
+      allow read: if admin() || teacher() || hardware() || student();
+      allow create, update, delete: if admin();
+    }
+    match /teachers/{tid} {
+      allow read: if admin() || teacher();
+      allow create, update, delete: if admin();
+    }
+    match /timetable/{tid} {
+      allow read: if admin() || teacher() || hardware() || student();
+      allow create, update, delete: if admin();
+    }
+    match /teacher_assignments/{aid} {
+      allow read: if admin() || teacher();
+      allow create, update, delete: if admin();
+    }
+    match /registration_requests/{rid} {
+      allow read: if admin() || teacher() || hardware();
+      allow create: if admin() || teacher();
+      allow update: if admin() || hardware();
+      allow delete: if admin();
+    }
+    match /attendance/{aid} {
+      allow read: if admin() || teacher() || hardware() || (student() && resource.data.studentId == profile().studentId);
+      allow create: if admin() || hardware();
+      allow update, delete: if admin();
+    }
+  }
+}

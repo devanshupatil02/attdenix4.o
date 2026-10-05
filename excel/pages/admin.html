@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="ATTENDIX Admin Dashboard - Smart RFID Attendance System"
+    >
+
+    <title>ATTENDIX – Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/dashboard.css"
+    >
+</head>
+
+
+<body data-role="admin">
+
+    <!-- ============================================
+         MOBILE SIDEBAR OVERLAY
+    ============================================= -->
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- ============================================
+         MOBILE SIDEBAR TOGGLE
+    ============================================= -->
+    <button
+        class="sidebar-toggle"
+        id="sidebarToggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-controls="sidebar"
+        aria-expanded="false"
+    >
+        <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+        >
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </button>
+
+
+    <!-- ============================================
+         SIDEBAR
+    ============================================= -->
+    <aside
+        class="sidebar"
+        id="sidebar"
+        aria-label="Admin navigation"
+    >
+
+        <!-- Logo -->
+        <a
+            class="sidebar-logo"
+            href="admin.html"
+        >
+
+            <div class="sidebar-logo-icon">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 36 36"
+                    fill="none"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M10 18C10 13.582 13.582 10 18 10C22.418 10 26 13.582 26 18C26 22.418 22.418 26 18 26"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                    />
+
+                    <path
+                        d="M14 18L17 21L22 15"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+
+            <div class="sidebar-logo-text">
+                <h2>ATTENDIX</h2>
+                <span>Admin Panel</span>
+            </div>
+
+        </a>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <span class="nav-section-label">
+                Main Menu
+            </span>
+
+
+            <a
+                href="admin.html"
+                class="active"
+                aria-current="page"
+            >
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                </svg>
+
+                Dashboard
+            </a>
+
+
+            <a href="student.html">
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+
+                Students
+            </a>
+
+
+            <a href="teachers.html">
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+
+                Teachers
+            </a>
+
+
+            <a href="timetable.html">
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+
+                Timetable
+            </a>
+
+
+            <a href="attendance.html">
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M9 11l3 3L22 4"/>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+
+                Attendance
+            </a>
+
+
+            <a href="reports.html">
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                </svg>
+
+                Reports
+            </a>
+            
+            <a href="rfid-register.html" class="dashboard-action">
+            <span>📡</span>
+            <h3>RFID Registration</h3>
+            <p>Register a student's RFID card</p>
+            </a>
+
+        </nav>
+
+        
+
+
+        <!-- Logout -->
+        <div class="sidebar-footer">
+
+            <button
+                type="button"
+                class="nav-item"
+            >
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ============================================
+         MAIN CONTENT
+    ============================================= -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <div class="topbar-title">
+
+                <h1>Dashboard</h1>
+
+                <p id="welcomeMessage">
+                    Welcome back
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-user">
+
+                    <div
+                        class="user-avatar"
+                        id="userAvatar"
+                        aria-hidden="true"
+                    >
+                        A
+                    </div>
+
+                    <div class="user-info">
+
+                        <strong id="userName">
+                            Admin
+                        </strong>
+
+                        <span id="userRole">
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ========================================
+             PAGE BODY
+        ========================================= -->
+        <div class="page-body">
+
+
+            <!-- ======================================
+                 STAT CARDS
+            ======================================= -->
+            <section
+                class="stats-grid"
+                aria-label="Attendance statistics"
+            >
+
+                <!-- Students -->
+                <article class="stat-card">
+
+                    <div class="stat-icon blue">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+
+                    </div>
+
+                    <div class="stat-info">
+
+                        <p>Total Students</p>
+
+                        <h3 id="totalStudents">
+                            —
+                        </h3>
+
+                        <small>
+                            Across all branches
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Teachers -->
+                <article class="stat-card">
+
+                    <div class="stat-icon purple">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+
+                    </div>
+
+                    <div class="stat-info">
+
+                        <p>Total Teachers</p>
+
+                        <h3 id="totalTeachers">
+                            —
+                        </h3>
+
+                        <small>
+                            Active faculty
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Present -->
+                <article class="stat-card">
+
+                    <div class="stat-icon green">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+
+                    </div>
+
+                    <div class="stat-info">
+
+                        <p>Present Today</p>
+
+                        <h3 id="presentToday">
+                            —
+                        </h3>
+
+                        <small id="presentSubtext">
+                            Attendance data
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Attendance -->
+                <article class="stat-card">
+
+                    <div class="stat-icon orange">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+
+                    </div>
+
+                    <div class="stat-info">
+
+                        <p>Attendance Rate</p>
+
+                        <h3 id="attendanceRate">
+                            —
+                        </h3>
+
+                        <small>
+                            Overall today
+                        </small>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ======================================
+                 CLASSES + QUICK ACCESS
+            ======================================= -->
+            <div
+                style="
+                    display:grid;
+                    grid-template-columns:1fr 320px;
+                    gap:20px;
+                    align-items:start;
+                "
+            >
+
+
+                <!-- Today's Classes -->
+                <section class="section-card">
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <h2>Today's Classes</h2>
+
+                            <p>
+                                Today's scheduled classes
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="timetable.html"
+                            class="btn btn-outline btn-sm"
+                        >
+                            View Full Timetable
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Subject</th>
+                                    <th>Teacher</th>
+                                    <th>Branch</th>
+                                    <th>Room</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="todayClassesTable">
+
+                                <tr>
+
+                                    <td
+                                        colspan="7"
+                                        style="text-align:center;"
+                                    >
+                                        Loading today's classes...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Quick Access -->
+                <section class="section-card">
+
+                    <div class="section-header">
+
+                        <h2>Quick Access</h2>
+
+                    </div>
+
+
+                    <div
+                        class="section-body"
+                        style="
+                            display:flex;
+                            flex-direction:column;
+                            gap:10px;
+                        "
+                    >
+
+                        <a
+                            href="student.html"
+                            class="btn btn-outline"
+                            style="justify-content:flex-start;"
+                        >
+                            Manage Students
+                        </a>
+
+
+                        <a
+                            href="teachers.html"
+                            class="btn btn-outline"
+                            style="justify-content:flex-start;"
+                        >
+                            Manage Teachers
+                        </a>
+
+
+                        <a
+                            href="timetable.html"
+                            class="btn btn-outline"
+                            style="justify-content:flex-start;"
+                        >
+                            View Timetable
+                        </a>
+
+
+                        <a
+                            href="attendance.html"
+                            class="btn btn-outline"
+                            style="justify-content:flex-start;"
+                        >
+                            View Attendance
+                        </a>
+
+
+                        <a
+                            href="reports.html"
+                            class="btn btn-primary"
+                            style="justify-content:flex-start;"
+                        >
+                            Generate Reports
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- ======================================
+                 BRANCH ATTENDANCE
+            ======================================= -->
+            <section
+                class="section-card"
+                style="margin-top:20px;"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Branch Attendance Summary
+                        </h2>
+
+                        <p>
+                            Today's attendance by branch
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="attendance.html"
+                        class="btn btn-outline btn-sm"
+                    >
+                        View Details
+                    </a>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Branch</th>
+                                <th>Year</th>
+                                <th>Total Students</th>
+                                <th>Present Today</th>
+                                <th>Absent Today</th>
+                                <th>Attendance %</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="branchAttendanceTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    style="text-align:center;"
+                                >
+                                    Loading attendance data...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ============================================
+         COMMON DASHBOARD LOGIC
+    ============================================= -->
+    <script
+        type="module"
+        src="../js/dashboard.js?v=3"
+    ></script>
+
+  <script type="module" src="../js/logout.js?v=1"></script>
+<script src="../js/mobile-sidebar.js"></script>
+</body>
+
+</html>

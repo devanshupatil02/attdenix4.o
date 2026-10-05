@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="ATTENDIX - Manage Students"
+    >
+
+    <title>ATTENDIX – Students</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/student.css"
+    >
+
+</head>
+
+
+<body data-role="admin">
+
+
+    <!-- ============================================
+         MOBILE SIDEBAR
+    ============================================= -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <button
+        class="sidebar-toggle"
+        id="sidebarToggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-controls="sidebar"
+        aria-expanded="false"
+    >
+
+        <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+        >
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+
+    </button>
+
+
+
+    <!-- ============================================
+         SIDEBAR
+    ============================================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+        aria-label="Admin navigation"
+    >
+
+        <!-- LOGO -->
+
+        <a
+            class="sidebar-logo"
+            href="admin.html"
+        >
+
+            <div class="sidebar-logo-icon">
+
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 36 36"
+                    fill="none"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M10 18C10 13.582 13.582 10 18 10C22.418 10 26 13.582 26 18C26 22.418 22.418 26 18 26"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                    />
+
+                    <path
+                        d="M14 18L17 21L22 15"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <div class="sidebar-logo-text">
+
+                <h2>ATTENDIX</h2>
+
+                <span>Admin Panel</span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <span class="nav-section-label">
+                Main Menu
+            </span>
+
+
+            <!-- Dashboard -->
+
+            <a href="admin.html">
+
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                </svg>
+
+                Dashboard
+
+            </a>
+
+
+            <!-- Students -->
+
+            <a
+                href="student.html"
+                class="active"
+                aria-current="page"
+            >
+
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+
+                Students
+
+            </a>
+
+
+            <!-- Teachers -->
+
+            <a href="teachers.html">
+
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+
+                Teachers
+
+            </a>
+
+
+            <!-- Timetable -->
+
+            <a href="timetable.html">
+
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+
+                Timetable
+
+            </a>
+
+
+            <!-- Attendance -->
+
+            <a href="attendance.html">
+
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M9 11l3 3L22 4"/>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+
+                Attendance
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a href="reports.html">
+
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                </svg>
+
+                Reports
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <button
+                type="button"
+                class="nav-item"
+            >
+
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ============================================
+         MAIN CONTENT
+    ============================================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-title">
+
+                <h1>Students</h1>
+
+                <p>
+                    Manage all enrolled students
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-user">
+
+                    <div
+                        class="user-avatar"
+                        id="userAvatar"
+                    >
+                        A
+                    </div>
+
+
+                    <div class="user-info">
+
+                        <strong id="userName">
+                            Loading...
+                        </strong>
+
+                        <span id="userRole">
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ============================================
+             PAGE BODY
+        ============================================= -->
+
+        <div class="page-body">
+
+
+            <!-- ========================================
+                 STUDENT STATISTICS
+            ========================================= -->
+
+            <section
+                class="stats-grid"
+                aria-label="Student statistics"
+            >
+
+
+                <!-- TOTAL STUDENTS -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon blue">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <p>Total Students</p>
+
+                        <h3 id="totalStudents">
+                            —
+                        </h3>
+
+                        <small>
+                            All branches
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- GOOD ATTENDANCE -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon green">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <p>Good Attendance</p>
+
+                        <h3 id="goodAttendance">
+                            —
+                        </h3>
+
+                        <small>
+                            ≥ 75%
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LOW ATTENDANCE -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon red">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <p>Low Attendance</p>
+
+                        <h3 id="lowAttendance">
+                            —
+                        </h3>
+
+                        <small>
+                            &lt; 75%
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- AVERAGE ATTENDANCE -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon orange">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <p>Avg. Attendance</p>
+
+                        <h3 id="averageAttendance">
+                            —
+                        </h3>
+
+                        <small>
+                            Current period
+                        </small>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- ========================================
+                 STUDENT TABLE
+            ========================================= -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>All Students</h2>
+
+                        <p>
+                            Students registered in ATTENDIX
+                        </p>
+
+                    </div>
+
+
+                    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary btn-sm"
+                            id="downloadStudentTemplateBtn"
+                        >
+                            ↓ Excel Template
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary btn-sm"
+                            id="importStudentsBtn"
+                        >
+                            ↑ Import Excel
+                        </button>
+
+                        <input
+                            type="file"
+                            id="studentExcelInput"
+                            accept=".xlsx,.xls,.csv"
+                            hidden
+                        >
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary btn-sm"
+                            id="sortBatchBtn"
+                        >
+                            ⇅ Sort Batches by Roll No
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary btn-sm"
+                            id="addStudentBtn"
+                        >
+                            + Add Student
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FILTERS -->
+
+                <div class="filter-row">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="search-box">
+
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="8"
+                            />
+
+                            <line
+                                x1="21"
+                                y1="21"
+                                x2="16.65"
+                                y2="16.65"
+                            />
+
+                        </svg>
+
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search student name or roll no..."
+                            autocomplete="off"
+                            aria-label="Search students"
+                        >
+
+                    </div>
+
+
+
+                    <!-- YEAR -->
+
+                    <select
+                        class="filter-select"
+                        id="yearFilter"
+                        aria-label="Filter by year"
+                    >
+
+                        <option value="">
+                            All Years
+                        </option>
+
+                        <option value="first year">
+                            First Year
+                        </option>
+
+                        <option value="second year">
+                            Second Year
+                        </option>
+
+                        <option value="third year">
+                            Third Year
+                        </option>
+
+                        <option value="fourth year">
+                            Fourth Year
+                        </option>
+
+                    </select>
+
+
+
+                    <!-- BRANCH -->
+
+                    <select
+                        class="filter-select"
+                        id="batchFilter"
+                        aria-label="Filter by batch"
+                    >
+                        <option value="">All Batches</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="B3">B3</option>
+                        <option value="B4">B4</option>
+                    </select>
+
+                    <select
+                        class="filter-select"
+                        id="branchFilter"
+                        aria-label="Filter by branch"
+                    >
+
+                        <option value="">
+                            All Branches
+                        </option>
+
+                        <option value="AI and Data Science">
+                            AI &amp; DS
+                        </option>
+
+                        <option value="Computer Science">
+                            Computer Science
+                        </option>
+
+                        <option value="Information Technology">
+                            Information Technology
+                        </option>
+
+                        <option value="Electronics">
+                            Electronics
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- TABLE -->
+
+                <div class="table-wrap">
+
+                    <table id="dataTable">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Roll No
+                                </th>
+
+                                <th>
+                                    Student Name
+                                </th>
+
+                                <th>
+                                    Branch
+                                </th>
+
+                                <th>
+                                    Year
+                                </th>
+
+                                <th>
+                                    Batch
+                                </th>
+
+                                <th>
+                                    Attendance
+                                </th>
+
+                                <th>
+                                    Last Scan
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                   Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="studentsTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    style="text-align:center;"
+                                >
+                                    Loading students...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ============================================
+         ADD STUDENT MODAL
+    ============================================= -->
+
+        <!-- ============================================
+         BATCH ASSIGNMENT MODAL
+    ============================================= -->
+    <div class="modal-overlay" id="batchSortModal" aria-hidden="true">
+        <div class="modal batch-sort-modal" role="dialog" aria-modal="true" aria-labelledby="batchSortTitle">
+            <div class="modal-header">
+                <div>
+                    <h2 id="batchSortTitle">Sort Students into Batches</h2>
+                    <p>Assign students automatically from their roll-number range.</p>
+                </div>
+                <button type="button" class="modal-close" id="closeBatchSortModal" aria-label="Close">×</button>
+            </div>
+            <form id="batchSortForm" class="batch-sort-form">
+                <div class="batch-sort-grid">
+                    <label>Batch
+                        <select id="sortBatchName" required>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="B3">B3</option>
+                            <option value="B4">B4</option>
+                        </select>
+                    </label>
+                    <label>Start Roll No
+                        <input id="sortStartRoll" type="number" min="0" required placeholder="1">
+                    </label>
+                    <label>End Roll No
+                        <input id="sortEndRoll" type="number" min="0" required placeholder="20">
+                    </label>
+                </div>
+                <div class="batch-sort-help">Example: choose <strong>B1</strong>, enter <strong>1–20</strong>, then Apply. Repeat for B2, B3, etc.</div>
+                <div id="batchSortStatus" class="batch-sort-status" role="status"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBatchSortBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="applyBatchSortBtn">Apply Batch</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<div
+        class="modal-overlay"
+        id="studentModal"
+        hidden
+    >
+
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="studentModalTitle"
+        >
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="studentModalTitle">
+                        Add Student
+                    </h2>
+
+                    <p>
+                        Register a new student in ATTENDIX
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeStudentModal"
+                    aria-label="Close"
+                >
+                    &times;
+                </button>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <form
+                id="studentForm"
+                autocomplete="off"
+            >
+
+
+                <!-- STUDENT NAME -->
+
+                <div class="form-group">
+
+                    <label for="studentName">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        name="name"
+                        placeholder="Enter student name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- ROLL NUMBER -->
+
+                <div class="form-group">
+
+                    <label for="studentRollNo">
+                        Roll No
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentRollNo"
+                        name="roll_no"
+                        placeholder="Enter roll number"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="studentEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="studentEmail"
+                        name="email"
+                        placeholder="student@example.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CLASS -->
+
+                <div class="form-group">
+
+                    <label for="studentClass">
+                        Class / Year
+                    </label>
+
+                    <select
+                        id="studentClass"
+                        name="class"
+                        required
+                    >
+
+                        <option value="">
+                            Select Class
+                        </option>
+
+                        <option value="First Year">
+                            First Year
+                        </option>
+
+                        <option value="Second Year">
+                            Second Year
+                        </option>
+
+                        <option value="Third Year">
+                            Third Year
+                        </option>
+
+                        <option value="Fourth Year">
+                            Fourth Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- BATCH -->
+
+                <div class="form-group">
+                    <label for="studentBatch">Batch</label>
+                    <select id="studentBatch" name="batch" required>
+                        <option value="">Select Batch</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="B3">B3</option>
+                        <option value="B4">B4</option>
+                    </select>
+                </div>
+
+
+                <!-- DEPARTMENT -->
+
+                <div class="form-group">
+
+                    <label for="studentDepartment">
+                        Department
+                    </label>
+
+                    <select
+                        id="studentDepartment"
+                        name="department"
+                        required
+                    >
+
+                        <option value="">
+                            Select Department
+                        </option>
+
+                        <option value="AI and Data Science">
+                            AI and Data Science
+                        </option>
+
+                        <option value="Computer Science">
+                            Computer Science
+                        </option>
+
+                        <option value="Information Technology">
+                            Information Technology
+                        </option>
+
+                        <option value="Electronics">
+                            Electronics
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- RFID UID -->
+
+                <div class="form-group">
+
+                    <label for="studentRfid">
+                        RFID UID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentRfid"
+                        name="rfid_uid"
+                        placeholder="Example: AA BB CC DD"
+                        required
+                    >
+
+                    <small>
+                        Enter the UID printed/read from the RFID card.
+                    </small>
+
+                </div>
+
+
+
+                <!-- ACTIVE -->
+
+                <div class="form-group checkbox-group">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="studentActive"
+                            name="active"
+                            checked
+                        >
+
+                        <span>
+                            Student is active
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- ERROR -->
+
+                <div
+                    id="studentFormError"
+                    class="form-error"
+                    hidden
+                ></div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="cancelStudentBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="saveStudentBtn"
+                    >
+                        Add Student
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ============================================
+         COMMON DASHBOARD JS
+    ============================================= -->
+
+    <script
+        type="module"
+        src="../js/dashboard.js"
+    ></script>
+
+
+    <!-- ============================================
+         STUDENT FIREBASE JS
+    ============================================= -->
+
+    <!-- SheetJS: Excel / CSV import support -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+    <script
+        type="module"
+        src="../js/admin-students.js?v=5"
+    ></script>
+
+  <script type="module" src="../js/logout.js?v=1"></script>
+<script src="../excel/js/mobile-sidebar.js"></script>
+</body>
+
+</html>

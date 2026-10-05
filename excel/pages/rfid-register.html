@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATTENDIX – RFID Registration</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/rfid-register.css">
+</head>
+<body data-role="admin-or-teacher">
+  <aside class="sidebar" id="sidebar">
+    <a class="sidebar-logo" id="panelHomeLink" href="admin.html">
+      <div class="sidebar-logo-icon">✓</div>
+      <div class="sidebar-logo-text"><h2>ATTENDIX</h2><span id="panelRoleLabel">Admin Panel</span></div>
+    </a>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main Menu</span>
+      <a href="admin.html">Dashboard</a>
+      <a href="student.html">Students</a>
+      <a href="teachers.html">Teachers</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="reports.html">Reports</a>
+      <a href="rfid-register.html" class="active">RFID Registration</a>
+    </nav>
+    <div class="sidebar-footer"><a href="../index.html">Logout</a></div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar"><div class="topbar-title"><h1>RFID Registration</h1><p>Register a student's RFID card</p></div></header>
+    <div class="page-body">
+      <section class="rfid-registration-card">
+        <div class="rfid-hero"><div class="rfid-icon">RFID</div><div><h2>Register Student Card</h2><p>Select the batch first, then select the student and start registration.</p></div></div>
+        <form id="registrationForm" class="rfid-form">
+          <div class="rfid-field rfid-batch-field"><div class="rfid-label-row"><label for="batchSelect">Batch</label><button type="button" id="exportBatchBtn" class="rfid-export-btn" title="Export all registered students">Export All Students</button></div><select id="batchSelect" required><option value="">Select Batch</option><option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option></select></div>
+          <div class="rfid-field"><label for="studentSelect">Student</label><select id="studentSelect" required disabled><option value="">Select a batch first</option></select></div>
+          <button type="submit" id="startRegistrationBtn" class="rfid-submit">Start RFID Registration</button>
+        </form>
+        <div id="registrationStatus" class="registration-status" role="status"></div>
+        <div class="rfid-note"><strong>Next:</strong> after starting registration, scan the RFID card on the ESP32/RC522 reader.</div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="../js/dashboard.js?v=4"></script>
+  <script type="module" src="../js/rfid-register.js?v=4"></script>
+</body>
+</html>

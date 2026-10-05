@@ -1,0 +1,309 @@
+/* ============================================
+   ATTENDIX – Admin Timetable Page (admin-timetable.css)
+   ============================================ */
+
+.timetable-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.day-block {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.day-header {
+  background: #EFF6FF;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.day-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1769E0;
+}
+
+.day-header span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.class-row {
+  display: flex;
+  align-items: center;
+  padding: 13px 18px;
+  border-bottom: 1px solid #f3f4f6;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.class-row:last-child {
+  border-bottom: none;
+}
+
+.class-time {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1769E0;
+  min-width: 110px;
+  white-space: nowrap;
+}
+
+.class-info {
+  flex: 1;
+}
+
+.class-info strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.class-info span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.class-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.class-room {
+  font-size: 12.5px;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+
+/* ===== 2-HOUR CELL TIMETABLE ===== */
+.timetable-grid { overflow-x: auto; }
+.timetable-cell-grid {
+  min-width: 1050px;
+  display: grid;
+  grid-template-columns: 150px repeat(6, minmax(145px, 1fr));
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.timetable-cell {
+  min-height: 105px;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px;
+}
+.timetable-corner, .timetable-day-cell {
+  min-height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: #f5f8fc; font-weight: 700; color: #334155;
+}
+.timetable-time-cell {
+  min-height: 105px; display: flex; align-items: center;
+  justify-content: center; text-align: center; font-size: 12px;
+  font-weight: 700; color: #1769e0; background: #fafcff;
+}
+.timetable-class-cell { background: #fff; }
+.empty-slot { color: #cbd5e1; font-size: 18px; display: block; text-align: center; padding-top: 30px; }
+.timetable-class {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-left: 4px solid #1769e0;
+  border-radius: 9px; padding: 9px; min-height: 82px;
+}
+.timetable-class-subject { font-weight: 700; color: #0f172a; font-size: 13px; margin-bottom: 4px; }
+.timetable-class-meta { color: #64748b; font-size: 11px; margin-top: 2px; }
+.timetable-class-actions { display:flex; gap:6px; margin-top:8px; }
+.timetable-class-actions button { border:0; background:transparent; color:#1769e0; font-size:11px; cursor:pointer; padding:0; }
+.timetable-class-actions .delete-class-btn { color:#dc2626; }
+.timetable-empty { padding:35px; text-align:center; color:#64748b; }
+.timetable-empty strong, .timetable-empty span { display:block; }
+.timetable-empty strong { color:#0f172a; margin-bottom:5px; }
+.time-help { display:block; margin-top:5px; color:#64748b; font-size:11px; }
+
+/* ============================================
+   ADD / EDIT CLASS MODAL
+   ============================================ */
+.class-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(3px);
+  overflow-y: auto;
+}
+
+.class-modal {
+  width: min(620px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
+  padding: 0;
+  color: #0f172a;
+}
+
+.class-modal .modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: #ffffff;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.class-modal .modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.class-modal .modal-header button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.class-modal .modal-header button:hover {
+  background: #eef2f7;
+  color: #0f172a;
+}
+
+#classForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 22px;
+}
+
+#classForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#classForm input,
+#classForm select {
+  width: 100%;
+  min-height: 42px;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #0f172a;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#classForm input:focus,
+#classForm select:focus {
+  border-color: #1769e0;
+  box-shadow: 0 0 0 3px rgba(23, 105, 224, 0.10);
+}
+
+#classForm input[readonly] {
+  background: #f8fafc;
+  color: #64748b;
+}
+
+#classForm .time-help {
+  margin: -1px 0 0;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+#classForm .form-error {
+  grid-column: 1 / -1;
+  margin: 0;
+  min-height: 18px;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#classForm .modal-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+  border-top: 1px solid #eef2f7;
+}
+
+#classForm .modal-actions button {
+  min-height: 40px;
+  padding: 9px 18px;
+  border-radius: 9px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#classForm .modal-actions button[type="submit"] {
+  border-color: #1769e0;
+  background: #1769e0;
+  color: #ffffff;
+}
+
+#classForm .modal-actions button[type="submit"]:hover {
+  background: #1258bd;
+}
+
+#classForm .modal-actions button[type="button"]:hover {
+  background: #f8fafc;
+}
+
+@media (max-width: 680px) {
+  .class-modal-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .class-modal {
+    max-height: calc(100vh - 24px);
+    border-radius: 12px;
+  }
+
+  #classForm {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+}

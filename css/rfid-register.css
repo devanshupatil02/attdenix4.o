@@ -1,0 +1,46 @@
+body { background:#f4f7fb; }
+.rfid-registration-card { max-width:760px; margin:30px auto; background:#fff; border:1px solid #e5e7eb; border-radius:18px; padding:30px; box-shadow:0 8px 30px rgba(15,23,42,.05); }
+.rfid-hero { display:flex; gap:16px; align-items:center; padding-bottom:22px; border-bottom:1px solid #eef2f7; }
+.rfid-icon { width:58px; height:58px; border-radius:14px; background:#eff6ff; color:#1769e0; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; }
+.rfid-hero h2 { margin:0 0 5px; font-size:22px; }
+.rfid-hero p { margin:0; color:#64748b; font-size:14px; }
+.rfid-form { display:grid; gap:18px; margin-top:24px; }
+.rfid-field { display:grid; gap:7px; }
+.rfid-field label { font-weight:600; font-size:13px; color:#334155; }
+.rfid-field select { width:100%; padding:12px 14px; border:1px solid #d7dee8; border-radius:10px; background:#fff; font-size:14px; outline:none; }
+.rfid-field select:focus { border-color:#1769e0; box-shadow:0 0 0 3px rgba(23,105,224,.1); }
+.rfid-submit { border:0; border-radius:10px; padding:13px 18px; background:#1769e0; color:#fff; font-weight:700; cursor:pointer; }
+.rfid-submit:hover { background:#1258bd; }
+.registration-status { min-height:24px; margin-top:16px; color:#1769e0; font-size:13px; font-weight:600; }
+.rfid-note { margin-top:18px; padding:13px 15px; background:#f8fafc; border-radius:10px; color:#64748b; font-size:12px; }
+
+
+/* Batch export control */
+.rfid-label-row { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.rfid-label-row label { margin:0; }
+.rfid-export-btn { border:1px solid #1769e0; background:#fff; color:#1769e0; border-radius:9px; padding:7px 12px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; }
+.rfid-export-btn:hover { background:#eff6ff; }
+.rfid-export-btn:focus-visible { outline:none; box-shadow:0 0 0 3px rgba(23,105,224,.12); }
+@media (max-width:520px) { .rfid-label-row { align-items:flex-start; flex-direction:column; } .rfid-export-btn { width:100%; } }
+
+.rfid-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.rfid-export-btn {
+  border: 1px solid #1769e0;
+  background: #fff;
+  color: #1769e0;
+  border-radius: 8px;
+  padding: 7px 11px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rfid-export-btn:hover {
+  background: #eff6ff;
+}
